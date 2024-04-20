@@ -1,0 +1,80 @@
+html, body {
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.valueContainer {
+    display: grid;
+    text-align: center;
+
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.dataContainer {
+    display: grid;
+    justify-content: center;
+    margin: 10px;
+
+}
+
+.data-input {
+    width: 100px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btnContainer{
+    display: grid;
+    justify-content: center;
+}
+
+.btnMod {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+}
+
+.btn-ex {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    width: 100px;
+}
+
+.btnContainerEx {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2b2b2b;
+    width: 200px;
+    height: 100vh;
+}
+
+
+.exContainer {
+    position: absolute;
+    left: 45%;
+    top: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
