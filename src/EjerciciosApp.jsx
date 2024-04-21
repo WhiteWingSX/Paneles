@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export const EjerciciosApp = () => {
 
+    //SideBar
     const [btnone, setBtnone] = useState(true)
     const [btntwo, setBtntwo] = useState(false)
     const [btnthree, setBtnthree] = useState(false)

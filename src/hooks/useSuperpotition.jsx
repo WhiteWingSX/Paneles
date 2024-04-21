@@ -11,6 +11,7 @@ export const useSuperpotition = (roofWidth,roofHeight,panelWidth,panelHeight,sup
         console.log(roofArea)
         const panelArea = panelWidth * panelHeight;
 
+        //Muestra el total de paneles redondeado al numero menor
         const totalPanel = Math.floor(roofArea / panelArea);
 
         //Prevención de resultado negativo remplazandolo con 0

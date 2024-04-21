@@ -20,7 +20,7 @@ export const useCalculate = () => {
         setPanelWidth(value)
     }
 
-    //Datos del panel con area Cuadrada (EJERCICIO 1)
+    // Datos de la superficie
     const defineRoofX = (value) => {
         setRoofHeight(value)
     }
@@ -29,12 +29,10 @@ export const useCalculate = () => {
         setRoofWidth(value)
     }
 
+    //Dato de la superposición
     const defineSuperpotition= (value) => {
         setSuperpotition(value)
     }
-
-
-
 
     return {
         definePanelWidth,

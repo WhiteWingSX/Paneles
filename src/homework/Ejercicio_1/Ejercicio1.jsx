@@ -1,5 +1,5 @@
 import '../../style.css'
-import { useCalculate, useRectanguleRoof } from "../../hooks/index.js";
+import { useCalculate, useRectangleRoof } from "../../hooks/index.js";
 
 export const Ejercicio1 = () => {
 
@@ -7,7 +7,7 @@ export const Ejercicio1 = () => {
     roofWidth,roofHeight,panelHeight,panelWidth
     } = useCalculate()
 
-    const {calculate, Result} = useRectanguleRoof(roofWidth, roofHeight, panelWidth,panelHeight)
+    const {calculate, Result} = useRectangleRoof(roofWidth, roofHeight, panelWidth,panelHeight)
 
     return (
         <div className="container">
