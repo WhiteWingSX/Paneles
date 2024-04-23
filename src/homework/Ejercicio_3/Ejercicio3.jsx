@@ -3,11 +3,12 @@ import { useCalculate, useSuperpotition } from "../../hooks/";
 
 export const Ejercicio3 = () => {
 
-    const {definePanelWidth, defineRPanelHeight, defineRoofX, defineRoofY, defineSuperpotition,
-        roofWidth,roofHeight,panelHeight,panelWidth, superpotition
-    } = useCalculate()
+    const {definePanelWidth, defineRPanelHeight, defineRoofX, defineRoofY, defineSuperpotitionX, defineSuperpotitionY,
+        roofWidth,roofHeight,panelHeight,panelWidth, superpotitionWidth,
+        superpotitionHeight} = useCalculate()
 
-    const {calculate, Result} = useSuperpotition(roofWidth, roofHeight, panelWidth, panelHeight, superpotition);
+    const {calculate, Result} = useSuperpotition(roofWidth, roofHeight, panelWidth, panelHeight,
+        superpotitionWidth, superpotitionHeight);
 
     return (
         <div className="container">
@@ -40,13 +41,24 @@ export const Ejercicio3 = () => {
                     </div>
 
                     <div className="dataContainer">
-                        <span><b>Superposición</b></span>
+                        <span><b>Superposición (Alto)</b></span>
                         <input
                             className='data-input'
                             type='number'
-                            placeholder='Superposición'
-                            value={superpotition}
-                            onChange={e => defineSuperpotition(e.target.value)}
+                            placeholder='Alto'
+                            value={superpotitionHeight}
+                            onChange={e => defineSuperpotitionX(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="dataContainer">
+                        <span><b>Superposición (Ancho)</b></span>
+                        <input
+                            className='data-input'
+                            type='number'
+                            placeholder='Ancho'
+                            value={superpotitionWidth}
+                            onChange={e => defineSuperpotitionY(e.target.value)}
                         />
                     </div>
                 </div>
@@ -91,7 +103,8 @@ export const Ejercicio3 = () => {
                             (roofHeight <= 0 || '') ||
                             (panelWidth <= 0 || '') ||
                             (panelHeight <= 0 || '') ||
-                            (superpotition <= 0 || '')
+                            (superpotitionWidth <= 0 || '') ||
+                            (superpotitionHeight <= 0 || '')
                         }>
                         Calcular
                     </button>

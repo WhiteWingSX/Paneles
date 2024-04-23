@@ -2,14 +2,14 @@ import { useState } from "react";
 
 export const useCalculate = () => {
 
-    const [roofHeight, setRoofHeight] = useState('');
-    const [roofWidth, setRoofWidth] = useState('');
+    const [roofHeight, setRoofHeight] = useState(Number);
+    const [roofWidth, setRoofWidth] = useState(Number);
 
-    const [panelHeight, setPanelHeight] = useState('');
-    const [panelWidth, setPanelWidth] = useState('');
+    const [panelHeight, setPanelHeight] = useState(Number);
+    const [panelWidth, setPanelWidth] = useState(Number);
 
-    const [superpotition, setSuperpotition] = useState('')
-
+    const [superpotitionHeight, setSuperpotitionHeight] = useState(0)
+    const [superpotitionWidth, setSuperpotitionWidth] = useState(0)
 
     //Datos del panel
     const defineRPanelHeight = (value) => {
@@ -30,22 +30,29 @@ export const useCalculate = () => {
     }
 
     //Dato de la superposición
-    const defineSuperpotition= (value) => {
-        setSuperpotition(value)
+    const defineSuperpotitionX= (value) => {
+        setSuperpotitionHeight(value)
     }
+
+    const defineSuperpotitionY = (value) => {
+        setSuperpotitionWidth(value)
+    };
+
 
     return {
         definePanelWidth,
         defineRPanelHeight,
         defineRoofY,
         defineRoofX,
-        defineSuperpotition,
+        defineSuperpotitionY,
+        defineSuperpotitionX,
 
 
         roofHeight,
         roofWidth,
         panelWidth,
         panelHeight,
-        superpotition,
+        superpotitionWidth,
+        superpotitionHeight,
     }
 };

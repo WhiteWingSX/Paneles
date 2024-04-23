@@ -16,22 +16,22 @@ export const Ejercicio2 = () => {
                 <h3>Ingrese la base y la altura del techo</h3>
                 <div className="inputContainer">
                     <div className="dataContainer">
-                        <span><b>Base</b></span>
+                        <span><b>Alto</b></span>
                         <input
                             className='data-input'
                             type='number'
-                            placeholder='Base'
+                            placeholder='Alto'
                             value={roofHeight}
                             onChange={e => defineRoofX(e.target.value)}
                         />
                     </div>
 
                     <div className="dataContainer">
-                        <span><b>Alto</b></span>
+                        <span><b>Base</b></span>
                         <input
                             className='data-input'
                             type='number'
-                            placeholder='Alto'
+                            placeholder='Base'
                             value={roofWidth}
                             onChange={e => defineRoofY(e.target.value)}
                         />

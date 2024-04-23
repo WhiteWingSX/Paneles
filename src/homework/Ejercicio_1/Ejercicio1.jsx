@@ -20,7 +20,7 @@ export const Ejercicio1 = () => {
                         <input
                             className='data-input'
                             type='number'
-                            placeholder='alto'
+                            placeholder='Alto'
                             value={roofHeight}
                             onChange={e => defineRoofX(e.target.value)}
                         />
@@ -47,7 +47,7 @@ export const Ejercicio1 = () => {
                         <input
                             className='data-input'
                             type='number'
-                            placeholder='Largo'
+                            placeholder='Alto'
                             value={panelHeight}
                             onChange={e => defineRPanelHeight(e.target.value)}
                         />
@@ -85,8 +85,7 @@ export const Ejercicio1 = () => {
 
                 <div>
                     <h3>se pueden situar un total de: <span style={{fontSize: '25px'}}>
-                        {Result} {(Result > 1) ? 'Paneles' : 'Panel' }
-                    </span></h3>
+                        {Result} {(Result > 1) ? 'Paneles' : 'Panel' }</span></h3>
                 </div>
 
             </div>
