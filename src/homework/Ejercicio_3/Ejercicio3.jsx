@@ -15,7 +15,6 @@ export const Ejercicio3 = () => {
             <div className="valueContainer">
                 <h2>Ejercicio 3 (Opcional 2)</h2>
                 <h3>Ingrese la altura, ancho y la superposicion:</h3>
-                <span>superposisción: ingrese un valor entre 0 y 1. </span>
                 <hr/>
                 <div className="inputContainer">
                     <div className="dataContainer">
@@ -102,9 +101,7 @@ export const Ejercicio3 = () => {
                             (roofWidth <= 0 || '') ||
                             (roofHeight <= 0 || '') ||
                             (panelWidth <= 0 || '') ||
-                            (panelHeight <= 0 || '') ||
-                            (superpotitionWidth <= 0 || '') ||
-                            (superpotitionHeight <= 0 || '')
+                            (panelHeight <= 0 || '')
                         }>
                         Calcular
                     </button>

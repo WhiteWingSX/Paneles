@@ -2,11 +2,11 @@ import { useState } from "react";
 
 export const useCalculate = () => {
 
-    const [roofHeight, setRoofHeight] = useState(Number);
-    const [roofWidth, setRoofWidth] = useState(Number);
+    const [roofHeight, setRoofHeight] = useState(0);
+    const [roofWidth, setRoofWidth] = useState(0);
 
-    const [panelHeight, setPanelHeight] = useState(Number);
-    const [panelWidth, setPanelWidth] = useState(Number);
+    const [panelHeight, setPanelHeight] = useState(0);
+    const [panelWidth, setPanelWidth] = useState(0);
 
     const [superpotitionHeight, setSuperpotitionHeight] = useState(0)
     const [superpotitionWidth, setSuperpotitionWidth] = useState(0)
