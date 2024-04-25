@@ -11,66 +11,39 @@ export const useRectangleRoof = (roofWidth, roofHeight, panelWidth, panelHeight)
         let roofY = Number(roofHeight);
         let panelX = Number(panelWidth);
         let panelY = Number(panelHeight);
-        let totalPanel = 0;
 
         // Incicio del calculo
-        const panelArea = panelWidth * panelHeight;
+        const totalWidth = Math.floor(roofX / panelX);
+        const totalHeight = Math.floor(roofY / panelY);
 
-        let panelL;
-        let countL = 0;
+        // Calculo resto
+        const restWidth = roofX % panelX;
+        const restHeight = roofY % panelY;
 
-        let panelT;
-        let countT = 0;
+        // Posicion horizontal / vertical
+        let totalPanelHorizontalHor = totalWidth * totalHeight;
+        let totalPanelHorizontalVer = 0;
 
-        for (panelL = 0; panelL < roofWidth;) {
-            panelL += panelX
-            countL++
+        let totalPanelVerticalHor = 0;
+        let totalPanelVerticalVer = totalWidth * totalHeight;
+
+        const countRestWidth = Math.floor(restHeight / panelX) * Math.floor(roofX / panelY);
+        const countRestHeight = Math.floor(restWidth / panelY) * Math.floor(roofY / panelX);
+
+        console.log(countRestHeight, countRestWidth)
+
+        if(restHeight >= panelX || restWidth >= panelY) {
+            totalPanelHorizontalHor += countRestWidth;
+            totalPanelHorizontalVer += countRestHeight;
+            totalPanelVerticalHor += countRestWidth;
+            totalPanelVerticalVer += countRestHeight;
         }
 
-        if (panelL > roofX) {
-            panelL--;
-            countL--;
-        }
+        if(totalPanelHorizontalHor + totalPanelHorizontalVer >= totalPanelVerticalHor + totalPanelVerticalVer && totalPanelHorizontalHor > 0 && totalPanelHorizontalVer > 0) {
+            setResult(totalPanelHorizontalHor + totalPanelHorizontalVer);
 
-        for (panelT = 0; panelT < roofHeight;) {
-            panelT += panelY
-            countT++
-        }
-
-        if (panelT > roofY) {
-            panelT--;
-            countT--;
-        }
-
-        //Calculo del resto
-        totalPanel = Math.floor(countL * countT);
-
-        let restWidth = roofWidth - (countL * panelWidth)
-        let restHeight = roofHeight - (countT * panelHeight)
-
-        // verificacion de espacio restante de forma horizontal y vertica
-        if ((restWidth >= panelX && roofY >= panelY) || (roofX >= panelX && restHeight >= panelY)
-            || (restWidth >= panelY && roofY >= panelX) || (roofX >= panelY && restHeight >= panelX)) {
-            if (restWidth > restHeight) {
-                const roofAreaR = restWidth * roofHeight;
-                const totalPanelR = Math.floor(roofAreaR / panelArea);
-                totalPanel += totalPanelR;
-            } else if (restWidth < restHeight) {
-                const roofAreaR = roofWidth * restHeight;
-                const totalPanelR = Math.floor(roofAreaR / panelArea);
-                totalPanel += totalPanelR;
-            }
-        }
-
-        // Se verifica si el alto y el ancho del techo es menor al del panel en caso de que la condicion se cumpla el resultado es 0
-        if (roofY >= panelY && roofX >= panelX) {
-            if (totalPanel >= 0) {
-                setResult(totalPanel);
-            } else { // si el resultado es negativo devuelve 0
-                setResult(0);
-            }
         } else {
-            setResult(0);
+            setResult(totalPanelVerticalVer + totalPanelVerticalHor);
         }
     }
 
