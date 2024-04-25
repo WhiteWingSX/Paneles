@@ -16,51 +16,46 @@ export const useRectangleRoof = (roofWidth, roofHeight, panelWidth, panelHeight)
         // Incicio del calculo
         const panelArea = panelWidth * panelHeight;
 
-            let panelL;
-            let countL = 0;
+        let panelL;
+        let countL = 0;
 
-            let panelT;
-            let countT = 0;
+        let panelT;
+        let countT = 0;
 
-            for (panelL = 0; panelL < roofWidth;) {
-                panelL += panelX
-                countL++
-            }
+        for (panelL = 0; panelL < roofWidth;) {
+            panelL += panelX
+            countL++
+        }
 
-            console.log(panelL, countL, 'L');
+        if (panelL > roofX) {
+            panelL--;
+            countL--;
+        }
 
-            if (panelL > roofX) {
-                panelL--;
-                countL--;
-            }
+        for (panelT = 0; panelT < roofHeight;) {
+            panelT += panelY
+            countT++
+        }
 
-            for (panelT = 0; panelT < roofHeight;) {
-                panelT += panelY
-                countT++
-            }
+        if (panelT > roofY) {
+            panelT--;
+            countT--;
+        }
 
-            console.log(panelT, countT, 'T')
+        //Calculo del resto
+        totalPanel = Math.floor(countL * countT);
 
-            if (panelT > roofY) {
-                panelT--;
-                countT--;
-            }
-
-            //Calculo del resto
-            totalPanel = Math.floor(countL * countT);
-
-            let restWidth = roofWidth - (countL * panelWidth)
-            let restHeight = roofHeight - (countT * panelHeight)
+        let restWidth = roofWidth - (countL * panelWidth)
+        let restHeight = roofHeight - (countT * panelHeight)
 
         // verificacion de espacio restante de forma horizontal y vertica
-        if((restWidth >= panelX && roofY >= panelY) || (roofX >= panelX && restHeight >= panelY)
-        || (restWidth >= panelY && roofY >= panelX) || (roofX >= panelY && restHeight >= panelX)) {
-            console.log('entrada de la primera condicion');
+        if ((restWidth >= panelX && roofY >= panelY) || (roofX >= panelX && restHeight >= panelY)
+            || (restWidth >= panelY && roofY >= panelX) || (roofX >= panelY && restHeight >= panelX)) {
             if (restWidth > restHeight) {
                 const roofAreaR = restWidth * roofHeight;
                 const totalPanelR = Math.floor(roofAreaR / panelArea);
                 totalPanel += totalPanelR;
-            }else if (restWidth < restHeight){
+            } else if (restWidth < restHeight) {
                 const roofAreaR = roofWidth * restHeight;
                 const totalPanelR = Math.floor(roofAreaR / panelArea);
                 totalPanel += totalPanelR;
@@ -68,7 +63,7 @@ export const useRectangleRoof = (roofWidth, roofHeight, panelWidth, panelHeight)
         }
 
         // Se verifica si el alto y el ancho del techo es menor al del panel en caso de que la condicion se cumpla el resultado es 0
-        if (roofY >= panelY && roofX >= panelX){
+        if (roofY >= panelY && roofX >= panelX) {
             if (totalPanel >= 0) {
                 setResult(totalPanel);
             } else { // si el resultado es negativo devuelve 0
@@ -79,8 +74,8 @@ export const useRectangleRoof = (roofWidth, roofHeight, panelWidth, panelHeight)
         }
     }
 
-return {
-    Result,
-    calculate,
-}
+    return {
+        Result,
+        calculate,
+    }
 };
